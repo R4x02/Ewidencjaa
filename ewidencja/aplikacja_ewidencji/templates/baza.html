@@ -1,0 +1,9 @@
+{% block content %}
+  <h2>Logowanie</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Zaloguj się</button>
+  </form>
+  <p>Nie masz konta? <a href="{% url 'rejestracja' %}">Zarejestruj się</a></p>
+{% endblock %}
