@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import RekordSprzetu
 
 class FormularzRejestracji(UserCreationForm):
     username = forms.CharField(
@@ -20,4 +20,16 @@ class FormularzRejestracji(UserCreationForm):
         widgets = {
             'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
+        }
+class FormularzRekorduSprzetu(forms.ModelForm):
+    class Meta:
+        model = RekordSprzetu
+        fields = ['nazwa_osoby', 'nazwa_sprzetu', 'numer_seryjny', 'nowy_numer_seryjny', 'opis_usterki', 'status']
+        labels = {
+            'nazwa_osoby': 'Nazwa osoby',
+            'nazwa_sprzetu': 'Nazwa sprzętu',
+            'numer_seryjny': 'Numer seryjny',
+            'nowy_numer_seryjny': 'Nowy numer seryjny',
+            'opis_usterki': 'Opis usterki',
+            'status': 'Status',
         }

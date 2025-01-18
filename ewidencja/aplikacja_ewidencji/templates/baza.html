@@ -1,9 +1,10 @@
-{% block content %}
-  <h2>Logowanie</h2>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Zaloguj się</button>
-  </form>
-  <p>Nie masz konta? <a href="{% url 'rejestracja' %}">Zarejestruj się</a></p>
-{% endblock %}
+Jezeli widzisz tą strone, zmien sciezke na jedną z tych:
+<br>admin/
+<br>logowanie/ [name='logowanie']
+<br>dodaj/ [name='dodaj_sprzet']
+<br>rejestracja/ [name='rejestracja']
+<br>wylogowanie/ [name='wylogowanie']
+<br>brak_permisji/ [name='brak_permisji']
+<br>permisje/ [name='permisje']
+<br>lista_sprzetu/ [name='lista_sprzetu']
+<br>edytuj/<int:pk>/ [name='edytuj_sprzet']
