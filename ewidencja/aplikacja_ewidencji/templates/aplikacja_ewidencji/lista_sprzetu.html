@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Sprzętu</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista Sprzętu</h1>
+            <button onclick="window.location.href='{% url 'permisje' %}'">Powrót do strony z permisjami</button>
+        </header>
+        <main>
+            {% for status, items in sprzet_list.items %}
+                <section>
+                    <h2>{{ status }}</h2>
+                    <ul>
+                        {% for sprzet in items %}
+                            <li>
+                                <span>{{ sprzet.nazwa_sprzetu }} - {{ sprzet.numer_seryjny }} - {{ sprzet.data_zrobienia }}</span>
+                                <div>
+                                    <a href="{% url 'edytuj_sprzet' sprzet.pk %}">Edytuj</a>
+                                    <a href="{% url 'usun_sprzet' sprzet.pk %}">Usuń</a>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            {% endfor %}
+        </main>
+    </div>
+</body>
+</html>

@@ -21,10 +21,21 @@ class FormularzRejestracji(UserCreationForm):
             'password1': forms.PasswordInput(attrs={'class': 'form-control'}),
             'password2': forms.PasswordInput(attrs={'class': 'form-control'}),
         }
+
 class FormularzRekorduSprzetu(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
     class Meta:
         model = RekordSprzetu
-        fields = ['nazwa_osoby', 'nazwa_sprzetu', 'numer_seryjny', 'nowy_numer_seryjny', 'opis_usterki', 'status']
+        fields = [
+            'nazwa_osoby',
+            'nazwa_sprzetu',
+            'numer_seryjny',
+            'nowy_numer_seryjny',
+            'opis_usterki',
+            'status',
+        ]
         labels = {
             'nazwa_osoby': 'Nazwa osoby',
             'nazwa_sprzetu': 'Nazwa sprzętu',

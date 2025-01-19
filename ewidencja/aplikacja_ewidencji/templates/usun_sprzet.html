@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edytuj Sprzęt</title>
+    <title>Usuń Sprzęt</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Edytuj Sprzęt</h1>
+            <h1>Czy na pewno chcesz usunąć ten sprzęt?</h1>
         </header>
         <main>
+            <p>{{ sprzet.nazwa_sprzetu }}</p>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Zapisz zmiany</button>
+                <button type="submit">Usuń</button>
+                <a href="{% url 'lista_sprzetu' %}">Anuluj</a>
             </form>
         </main>
     </div>

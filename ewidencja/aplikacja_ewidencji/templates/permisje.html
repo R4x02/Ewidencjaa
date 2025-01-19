@@ -1,14 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprawdź Uprawnienia</title>
+    <title>Permisje</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Sprawdź Uprawnienia</h1>
-    <p>Masz uprawnienia do edytowania sprzętu.</p>
-    <a href="{% url 'dodaj_sprzet' %}"><button>Przejdź do dodawania sprzętu</button></a>
-    <a href="{% url 'lista_sprzetu' %}"><button>Przejdź do listy sprzętu</button></a>
+    <div class="container">
+        <header>
+            <h1>Permisje</h1>
+            <button onclick="window.location.href='{% url 'dodaj_sprzet' %}'">Dodaj Sprzęt</button>
+            <button onclick="window.location.href='{% url 'lista_sprzetu' %}'">Lista Sprzętu</button>
+        </header>
+        <main>
+            <ul>
+                {% for permisja in permisje %}
+                    <li>{{ permisja }}</li>
+                {% endfor %}
+            </ul>
+        </main>
+    </div>
 </body>
 </html>

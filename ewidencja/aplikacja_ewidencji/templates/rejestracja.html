@@ -1,19 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rejestracja</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Rejestracja</h1>
-
-    <form method="post">
-        {% csrf_token %}
-        <h2>Dane użytkownika</h2>
-        {{ formularz_uzytkownika.as_p }}
-
-        <button type="submit">Zarejestruj się</button>
-    </form>
+    <div class="container">
+        <header>
+            <h1>Rejestracja</h1>
+        </header>
+        <main>
+            <form method="post">
+                {% csrf_token %}
+                <h2>Dane użytkownika</h2>
+                {{ formularz_uzytkownika.as_p }}
+                <button type="submit">Zarejestruj się</button>
+            </form>
+        </main>
+    </div>
 </body>
 </html>
